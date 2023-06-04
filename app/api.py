@@ -1,4 +1,4 @@
-mport http.client  # Módulo para realizar operaciones HTTP
+import http.client  # Módulo para realizar operaciones HTTP
 import math  # Módulo para realizar operaciones matemáticas
 
 from flask import Flask  # Importa la clase Flask del framework Flask
