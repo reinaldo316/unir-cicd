@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-context('Calc', () => {
+context('calc', () => {
   beforeEach(() => {
     cy.visit('http://calc-web/')
   })
