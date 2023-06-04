@@ -17,9 +17,9 @@ pipeline {
         stage('Unit tests') {
             steps {
                 sh 'make test-unit'
-                archiveArtifacts artifacts: 'results/unit_result.xml'
-                // Presentar informes de pruebas de API
-                step([$class: 'JUnitPublisher', testResults: 'results/api_result.xml'])
+                archiveArtifacts artifacts: 'results/unit_result.xml',
+                archiveArtifacts artifacts: 'results/unit_result.html'
+
             }
         }
         stage('API tests') {
