@@ -13,6 +13,8 @@ test-unit:
 	docker rm unit-tests || true
 
 test-api:
+	docker stop apiserver || true
+	docker rm --force apiserver || true
 	docker network create calc-test-api || true
 	docker run -d --network calc-test-api --env PYTHONPATH=/opt/calc --name apiserver --env FLASK_APP=app/api.py -p 5000:5000 -w /opt/calc calculator-app:latest flask run --host=0.0.0.0
 	docker run --network calc-test-api --name api-tests --env PYTHONPATH=/opt/calc --env BASE_URL=http://apiserver:5000/ -w /opt/calc calculator-app:latest pytest --junit-xml=results/api_result.xml -m api  || true
@@ -24,6 +26,7 @@ test-api:
 	docker network rm calc-test-api || true
 
 test-e2e:
+	docker network rm calc-test-e2e || true
 	docker network create calc-test-e2e || true
 	docker stop apiserver || true
 	docker rm --force apiserver || true
