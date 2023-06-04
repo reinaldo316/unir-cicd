@@ -26,6 +26,7 @@ pipeline {
             steps {
                 sh 'make test-api'
                 archiveArtifacts artifacts: 'results/api_result.xml'
+                archiveArtifacts artifacts: 'results/api_result.html'
             }
         }
         stage('E2E tests') {
