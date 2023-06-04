@@ -20,6 +20,7 @@ context('Calc', () => {
     cy.get('#in-op1').clear().type('2')
     cy.get('#in-op2').clear().type('3')
     cy.get('#button-add').click()
+    cy.wait(1000); // Espera 1 segundo (ajusta el tiempo según sea necesario)
     cy.get('#result-area').should('have.text', "Result: 5")
     cy.screenshot()
   })
@@ -28,6 +29,7 @@ context('Calc', () => {
     cy.get('#in-op1').clear().type('2')
     cy.get('#in-op2').clear().type('3')
     cy.get('#button-multiply').click()
+    cy.wait(1000); // Espera 1 segundo (ajusta el tiempo según sea necesario)
     cy.get('#result-area').should('have.text', "Result: 6")
     cy.screenshot()
   })
@@ -40,6 +42,7 @@ context('Calc', () => {
     cy.get('#in-op1').clear().type('4')
     cy.get('#in-op2').clear().type('-4')
     cy.get('#button-substract').click()
+    cy.wait(1000); // Espera 1 segundo (ajusta el tiempo según sea necesario)
 
     cy.wait('@getResult')
 
